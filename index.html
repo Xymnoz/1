@@ -1,85 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Xymnoz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xymnoz</title>
 
-<style>
-body{
-    margin:0;
-    background:linear-gradient(180deg,#050510,#101030);
-    color:white;
-    font-family:Arial,Helvetica,sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    overflow:hidden;
-}
-
-.card{
-    width:350px;
-    text-align:center;
-    padding:30px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);
-    border-radius:20px;
-    box-shadow:0 0 40px rgba(0,170,255,.4);
-}
-
-.avatar{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    margin:auto;
-    background:#222;
-    border:3px solid cyan;
-}
-
-h1{
-    margin:20px 0 5px;
-    color:#6fdcff;
-}
-
-p{
-    opacity:.8;
-}
-
-a{
-    display:block;
-    text-decoration:none;
-    color:white;
-    margin:12px 0;
-    padding:12px;
-    border-radius:12px;
-    background:#1b4cff;
-    transition:.3s;
-}
-
-a:hover{
-    transform:scale(1.05);
-    background:#2d6cff;
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="card">
+    <!-- Pantalla de entrada -->
+    <div id="intro">
+        <h1>Xymnoz</h1>
+        <p>Building the impossible.</p>
 
-<div class="avatar"></div>
+        <button id="enterBtn">
+            Click to Enter
+        </button>
+    </div>
 
-<h1>Xymnoz</h1>
+    <!-- Página -->
+    <div id="main">
 
-<p>Building the impossible.</p>
+        <div class="avatar"></div>
 
-<a href="#">Discord</a>
-<a href="#">YouTube</a>
-<a href="#">GitHub</a>
-<a href="#">Steam</a>
+        <h1>Xymnoz</h1>
 
-</div>
+        <p>Building the impossible.</p>
+
+        <a href="#">Discord</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub</a>
+        <a href="#">Steam</a>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

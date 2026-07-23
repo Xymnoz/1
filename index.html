@@ -1,50 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Xymnoz</title>
 
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-    <!-- Pantalla de entrada -->
+    <!-- INTRO -->
+
     <div id="intro">
+
         <h1>Xymnoz</h1>
+
         <p>Building the impossible.</p>
 
         <button id="enterBtn">
             Click to Enter
         </button>
+
     </div>
 
-    <!-- Página -->
-    <!-- Página -->
-<div id="main" style="display:none;">
+    <!-- CONTENIDO -->
 
-    <div class="card">
+    <main id="main">
 
-        <div class="avatar"></div>
+        <div class="card">
 
-        <h1>Xymnoz</h1>
+            <div class="avatar"></div>
 
-        <p>Building the impossible.</p>
+            <h1>Xymnoz</h1>
 
-        <div class="links">
-            <a href="#">Discord</a>
-            <a href="#">YouTube</a>
-            <a href="#">GitHub</a>
-            <a href="#">Steam</a>
+            <p class="bio">
+                Building the impossible.
+            </p>
+
+            <div class="links">
+
+                <a href="#">
+                    <i class="fa-brands fa-discord"></i>
+                    Discord
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                    YouTube
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-steam"></i>
+                    Steam
+                </a>
+
+            </div>
+
         </div>
 
-    </div>
-
-</div>
+    </main>
 
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
@@ -53,4 +88,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

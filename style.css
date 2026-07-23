@@ -1,19 +1,47 @@
+/* ==========================
+   Xymnoz Website - v0.2
+========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+:root{
+
+    --bg:#09090b;
+    --card:rgba(20,20,25,.65);
+
+    --border:rgba(255,255,255,.08);
+
+    --text:#ffffff;
+    --sub:#9a9a9a;
+
+    --accent:#b100ff;
+    --accent2:#ff1744;
+
+}
+
 body{
-    background:#0b0b0b;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
+
+    font-family:'Outfit',sans-serif;
+
+    background:
+    radial-gradient(circle at top,#32103f 0%,transparent 35%),
+    radial-gradient(circle at bottom,#500015 0%,transparent 40%),
+    var(--bg);
+
+    color:var(--text);
+
     overflow:hidden;
+
 }
 
 /* INTRO */
 
 #intro{
+
     position:fixed;
     inset:0;
 
@@ -22,90 +50,163 @@ body{
     justify-content:center;
     align-items:center;
 
-    background:#0b0b0b;
-    z-index:999;
+    background:var(--bg);
+
+    z-index:100;
+
 }
 
 #intro h1{
-    font-size:70px;
-    margin-bottom:15px;
+
+    font-size:64px;
+    font-weight:700;
+
 }
 
 #intro p{
-    color:#999;
+
+    color:var(--sub);
+
+    margin-top:10px;
     margin-bottom:35px;
+
 }
 
 #enterBtn{
-    padding:15px 45px;
 
-    background:white;
-    color:black;
+    padding:15px 42px;
 
     border:none;
+
     border-radius:999px;
 
-    font-size:18px;
+    background:white;
+
+    font-family:'Outfit',sans-serif;
+    font-size:16px;
+
     cursor:pointer;
 
-    transition:.3s;
+    transition:.30s;
+
 }
 
 #enterBtn:hover{
-    transform:scale(1.08);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px rgba(177,0,255,.4);
+
 }
 
 /* PAGINA */
 
 #main{
 
-    display:none;
-
+    width:100%;
     height:100vh;
 
     display:flex;
-    flex-direction:column;
+
     justify-content:center;
     align-items:center;
 
-    gap:15px;
 }
+
+/* TARJETA */
+
+.card{
+
+    width:360px;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    box-shadow:
+    0 0 40px rgba(177,0,255,.12);
+
+    text-align:center;
+
+}
+
+/* AVATAR */
 
 .avatar{
 
-    width:140px;
-    height:140px;
+    width:130px;
+    height:130px;
+
+    margin:auto;
 
     border-radius:50%;
 
     background:#222;
 
-    margin-bottom:20px;
+    border:2px solid rgba(255,255,255,.08);
+
+    margin-bottom:25px;
 
 }
 
-a{
+.card h1{
 
-    color:white;
+    font-size:40px;
+
+}
+
+.card p{
+
+    color:var(--sub);
+
+    margin-top:8px;
+    margin-bottom:30px;
+
+}
+
+/* LINKS */
+
+.links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.links a{
 
     text-decoration:none;
 
-    padding:12px 28px;
+    color:white;
 
-    background:#181818;
+    background:#18181d;
 
-    border-radius:10px;
+    padding:14px;
 
-    width:220px;
-
-    text-align:center;
+    border-radius:14px;
 
     transition:.25s;
 
 }
 
-a:hover{
+.links a:hover{
 
-    background:#2b2b2b;
+    transform:translateY(-2px);
 
-}
+    background:#24242d;
+
+    border:1px solid rgba(177,0,255,.5);
+
+    box-shadow:
+    0 0 18px rgba(177,0,255,.18);
+

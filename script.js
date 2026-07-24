@@ -216,3 +216,64 @@ fill:"forwards"
 },100);
 
 updateCard();
+/* ======================================
+   Typing Effect
+====================================== */
+
+const typingElement = document.getElementById("typingText");
+
+const typingSentence = "Mi mayor atributo es mi lealtad";
+
+let letter = 0;
+
+let deleting = false;
+
+function typingLoop(){
+
+    if(!deleting){
+
+        typingElement.textContent =
+        typingSentence.substring(0,letter);
+
+        letter++;
+
+        if(letter > typingSentence.length){
+
+            deleting = true;
+
+            setTimeout(typingLoop,1800);
+
+            return;
+
+        }
+
+    }
+
+    else{
+
+        typingElement.textContent =
+        typingSentence.substring(0,letter);
+
+        letter--;
+
+        if(letter < 0){
+
+            deleting = false;
+
+            letter = 0;
+
+        }
+
+    }
+
+    setTimeout(
+
+        typingLoop,
+
+        deleting ? 45 : 85
+
+    );
+
+}
+
+typingLoop();

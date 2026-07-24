@@ -355,7 +355,7 @@ font-size:56px;
 }
 #nickname.glitch{
 
-    animation:glitch .10s steps(2);
+    animation:glitch .5s steps(2);
 
 }
 /* Typing */

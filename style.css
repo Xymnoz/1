@@ -1,6 +1,7 @@
-/* ==========================
-   Xymnoz v1.0
-========================== */
+/* ===========================
+   Xymnoz v1.1
+   Cyberpunk + Gothic
+=========================== */
 
 *{
     margin:0;
@@ -10,16 +11,16 @@
 
 :root{
 
-    --bg:#08080a;
-    --card:rgba(18,18,25,.70);
+    --bg:#09090c;
+    --card:rgba(18,18,24,.68);
 
     --border:rgba(255,255,255,.08);
 
     --text:#ffffff;
-    --sub:#9c9c9c;
+    --sub:#989898;
 
-    --purple:#a100ff;
-    --red:#ff2b55;
+    --purple:#8f2fff;
+    --red:#ff245a;
 
 }
 
@@ -27,14 +28,14 @@ body{
 
     font-family:'Outfit',sans-serif;
 
-    color:var(--text);
+    color:white;
 
     overflow:hidden;
 
     background:
-    radial-gradient(circle at top,#381047 0%,transparent 40%),
-    radial-gradient(circle at bottom,#5a001d 0%,transparent 40%),
-    var(--bg);
+    radial-gradient(circle at top,#341042 0%,transparent 38%),
+    radial-gradient(circle at bottom,#500018 0%,transparent 45%),
+    #09090c;
 
 }
 
@@ -43,16 +44,20 @@ body{
 #intro{
 
     position:fixed;
+
     inset:0;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
-    background:var(--bg);
+    background:#09090c;
 
-    z-index:1000;
+    z-index:999;
 
     transition:.6s;
 
@@ -60,16 +65,18 @@ body{
 
 #intro h1{
 
-    font-size:72px;
+    font-size:68px;
+
     font-weight:700;
 
 }
 
 #intro p{
 
-    color:var(--sub);
+    color:#8b8b8b;
 
-    margin-top:12px;
+    margin-top:10px;
+
     margin-bottom:35px;
 
 }
@@ -96,7 +103,9 @@ body{
 
     transform:translateY(-3px);
 
-    box-shadow:0 0 25px rgba(161,0,255,.45);
+    box-shadow:
+
+    0 0 30px rgba(143,47,255,.35);
 
 }
 
@@ -107,9 +116,11 @@ body{
     display:none;
 
     width:100vw;
+
     height:100vh;
 
     justify-content:center;
+
     align-items:center;
 
 }
@@ -118,20 +129,21 @@ body{
 
 .card{
 
-    width:380px;
+    width:390px;
 
-    padding:35px;
+    padding:34px;
 
-    border-radius:26px;
+    border-radius:28px;
 
     background:var(--card);
 
-    border:1px solid var(--border);
+    border:1px solid rgba(255,255,255,.08);
 
-    backdrop-filter:blur(22px);
+    backdrop-filter:blur(18px);
 
     box-shadow:
-    0 0 45px rgba(161,0,255,.10);
+
+    0 0 40px rgba(143,47,255,.10);
 
     text-align:center;
 
@@ -141,63 +153,53 @@ body{
 
 .avatar{
 
-    width:140px;
-    height:140px;
+    width:145px;
+
+    height:145px;
 
     margin:auto;
 
     border-radius:50%;
 
-    background:#222;
+    background:#232323;
 
-    border:2px solid rgba(255,255,255,.08);
+    border:2px solid rgba(143,47,255,.25);
 
     box-shadow:
-    0 0 35px rgba(161,0,255,.20);
 
-    margin-bottom:25px;
+    0 0 30px rgba(143,47,255,.20);
 
 }
 
-/* TITULOS */
+/* TEXTO */
 
 .card h1{
 
-    font-size:38px;
+    margin-top:22px;
+
+    font-size:42px;
 
 }
 
 .bio{
 
-    margin-top:10px;
+    color:var(--sub);
+
+    margin-top:8px;
 
     margin-bottom:30px;
 
-    color:var(--sub);
-
 }
 
-/* LINKS */
+/* SOCIAL CARD */
 
-.links{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:14px;
-
-}
-
-.links a{
+#socialCard{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
-
-    gap:12px;
+    gap:18px;
 
     text-decoration:none;
 
@@ -205,51 +207,128 @@ body{
 
     background:#18181f;
 
-    padding:15px;
+    border-radius:18px;
 
-    border-radius:14px;
+    padding:18px;
 
-    transition:.25s;
+    transition:.35s;
 
-    border:1px solid transparent;
+    border:1px solid rgba(255,255,255,.05);
 
 }
 
-.links a:hover{
+#socialCard:hover{
 
     transform:translateY(-3px);
 
-    border-color:rgba(161,0,255,.35);
-
     box-shadow:
 
-    0 0 18px rgba(161,0,255,.20);
+    0 0 20px rgba(143,47,255,.18);
 
 }
 
-/* ICONOS */
+/* ICONO */
 
-.fa-discord{
+.socialIcon{
 
-    color:#5865F2;
+    width:54px;
 
-}
+    height:54px;
 
-.fa-youtube{
+    border-radius:14px;
 
-    color:#ff3030;
+    background:#23232d;
 
-}
+    display:flex;
 
-.fa-github{
+    justify-content:center;
 
-    color:white;
+    align-items:center;
 
-}
-
-.fa-steam{
-
-    color:#66c0f4;
+    font-size:23px;
 
 }
 
+/* INFO */
+
+.socialInfo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+#socialTitle{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+#socialSubtitle{
+
+    color:#8d8d8d;
+
+    margin-top:3px;
+
+}
+
+/* PROGRESS */
+
+.progress{
+
+    margin-top:18px;
+
+    width:100%;
+
+    height:5px;
+
+    background:#232323;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+#progressBar{
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,var(--purple),var(--red));
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:500px){
+
+.card{
+
+width:90%;
+
+padding:28px;
+
+}
+
+.avatar{
+
+width:120px;
+
+height:120px;
+
+}
+
+#intro h1{
+
+font-size:56px;
+
+}
+
+}

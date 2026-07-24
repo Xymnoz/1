@@ -306,3 +306,26 @@ function updateClock(){
 updateClock();
 
 setInterval(updateClock,1000);
+/* ======================================
+   Random Glitch
+====================================== */
+
+const nickname = document.getElementById("nickname");
+
+function glitch(){
+
+    nickname.classList.add("glitch");
+
+    setTimeout(()=>{
+
+        nickname.classList.remove("glitch");
+
+    },180);
+
+    const next = Math.random()*4500+3500;
+
+    setTimeout(glitch,next);
+
+}
+
+setTimeout(glitch,2500);

@@ -545,3 +545,96 @@ text-shadow:none;
 }
 
 }
+/* ===========================================
+   DIGITAL NOISE ENGINE
+=========================================== */
+
+#binaryBackground{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+}
+
+/* Cada columna */
+
+.binaryColumn{
+
+    position:absolute;
+
+    top:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    white-space:pre;
+
+    user-select:none;
+
+    font-family:Consolas, monospace;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    line-height:18px;
+
+    opacity:.16;
+
+    animation-name:binaryRise;
+
+    animation-timing-function:linear;
+
+    animation-iteration-count:infinite;
+
+}
+
+/* Los 0 */
+
+.binaryZero{
+
+    color:#2b2b2b;
+
+}
+
+/* Los 1 */
+
+.binaryOne{
+
+    color:#4dff88;
+
+    text-shadow:
+
+    0 0 6px #4dff88,
+
+    0 0 12px #4dff88,
+
+    0 0 22px rgba(77,255,136,.45);
+
+}
+
+/* Movimiento */
+
+@keyframes binaryRise{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+    to{
+
+        transform:translateY(-220vh);
+
+    }
+
+}

@@ -356,13 +356,20 @@ font-size:56px;
 
     margin-top:10px;
 
-    color:#b7b7b7;
-
     height:26px;
 
     font-size:17px;
 
-    letter-spacing:.5px;
+    letter-spacing:.6px;
+
+    color:#dcb9ff;
+
+    text-shadow:
+        0 0 6px rgba(180,60,255,.45),
+        0 0 12px rgba(180,60,255,.35),
+        0 0 22px rgba(180,60,255,.20);
+
+    animation:typingGlow 2.8s ease-in-out infinite;
 
 }
 
@@ -437,5 +444,25 @@ text-shadow:
 0 0 10px rgba(180,60,255,.20);
 
 }
+
+}
+@keyframes typingGlow{
+
+    0%,100%{
+
+        text-shadow:
+        0 0 6px rgba(180,60,255,.35),
+        0 0 12px rgba(180,60,255,.25);
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 12px rgba(180,60,255,.85),
+        0 0 24px rgba(180,60,255,.60),
+        0 0 40px rgba(180,60,255,.30);
+
+    }
 
 }

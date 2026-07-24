@@ -338,18 +338,26 @@ font-size:56px;
 
 #nickname{
 
+    position:relative;
+
     font-size:42px;
 
     margin-top:22px;
 
-    text-shadow:
+    font-weight:700;
 
-    0 0 10px rgba(180,60,255,.25);
+    color:white;
 
-    animation:neonGlow 3s infinite;
+    letter-spacing:.5px;
+
+    user-select:none;
 
 }
+#nickname.glitch{
 
+    animation:glitch .18s steps(2);
+
+}
 /* Typing */
 
 #typingText{
@@ -464,5 +472,76 @@ text-shadow:
         0 0 40px rgba(180,60,255,.30);
 
     }
+
+}
+@keyframes glitch{
+
+0%{
+
+transform:translate(0);
+
+text-shadow:
+
+2px 0 #ff0048,
+
+-2px 0 cyan;
+
+}
+
+20%{
+
+transform:translate(-2px,1px);
+
+text-shadow:
+
+-3px 0 red,
+
+3px 0 cyan;
+
+}
+
+40%{
+
+transform:translate(3px,-1px);
+
+text-shadow:
+
+3px 0 red,
+
+-3px 0 cyan;
+
+}
+
+60%{
+
+transform:translate(-2px,-2px);
+
+text-shadow:
+
+4px 0 #ff0048,
+
+-4px 0 #00fff7;
+
+}
+
+80%{
+
+transform:translate(2px,2px);
+
+text-shadow:
+
+-4px 0 red,
+
+4px 0 cyan;
+
+}
+
+100%{
+
+transform:translate(0);
+
+text-shadow:none;
+
+}
 
 }

@@ -277,3 +277,32 @@ function typingLoop(){
 }
 
 typingLoop();
+/* ======================================
+   Argentina Clock
+====================================== */
+
+const clock = document.getElementById("clock");
+
+function updateClock(){
+
+    const now = new Date();
+
+    const argentinaTime = now.toLocaleTimeString("es-AR",{
+
+        timeZone:"America/Argentina/Buenos_Aires",
+
+        hour:"2-digit",
+
+        minute:"2-digit",
+
+        second:"2-digit"
+
+    });
+
+    clock.textContent = argentinaTime;
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);

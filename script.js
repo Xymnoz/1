@@ -328,4 +328,52 @@ function glitch(){
 
 }
 
-setTimeout(glitch,2500);
+setTimeout(glitch,2500)/* ======================================
+   DIGITAL NOISE ENGINE
+====================================== */
+
+const binaryBackground = document.getElementById("binaryBackground");
+
+const COLUMN_COUNT = 42;
+
+function randomBinary(length){
+
+    let html = "";
+
+    for(let i=0;i<length;i++){
+
+        if(Math.random() < 0.25){
+
+            html += '<span class="binaryOne">1</span><br>';
+
+        }else{
+
+            html += '<span class="binaryZero">0</span><br>';
+
+        }
+
+    }
+
+    return html;
+
+}
+
+for(let i=0;i<COLUMN_COUNT;i++){
+
+    const column = document.createElement("div");
+
+    column.className = "binaryColumn";
+
+    column.style.left = (i*(100/COLUMN_COUNT))+"vw";
+
+    column.style.animationDuration =
+        (18 + Math.random()*12) + "s";
+
+    column.style.animationDelay =
+        (-Math.random()*30) + "s";
+
+    column.innerHTML = randomBinary(140);
+
+    binaryBackground.appendChild(column);
+
+};

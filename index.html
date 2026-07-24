@@ -14,11 +14,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Iconos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -27,7 +26,7 @@
 
     <!-- INTRO -->
 
-    <div id="intro">
+    <section id="intro">
 
         <h1>Xymnoz</h1>
 
@@ -37,7 +36,7 @@
             Click to Enter
         </button>
 
-    </div>
+    </section>
 
     <!-- CONTENIDO -->
 
@@ -53,27 +52,37 @@
                 Building the impossible.
             </p>
 
-            <div class="links">
+            <!-- SOCIAL SHOWCASE -->
 
-                <a href="#">
-                    <i class="fa-brands fa-discord"></i>
-                    Discord
-                </a>
+            <a id="socialCard" href="#" target="_blank">
 
-                <a href="#">
-                    <i class="fa-brands fa-youtube"></i>
-                    YouTube
-                </a>
+                <div class="socialIcon">
 
-                <a href="#">
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
-                </a>
+                    <i id="socialIcon" class="fa-brands fa-discord"></i>
 
-                <a href="#">
-                    <i class="fa-brands fa-steam"></i>
-                    Steam
-                </a>
+                </div>
+
+                <div class="socialInfo">
+
+                    <span id="socialTitle">
+
+                        Discord
+
+                    </span>
+
+                    <small id="socialSubtitle">
+
+                        @Xymnoz
+
+                    </small>
+
+                </div>
+
+            </a>
+
+            <div class="progress">
+
+                <div id="progressBar"></div>
 
             </div>
 
@@ -82,7 +91,9 @@
     </main>
 
     <audio id="bgMusic" loop>
+
         <source src="music.mp3" type="audio/mpeg">
+
     </audio>
 
     <script src="script.js"></script>

@@ -163,7 +163,110 @@
         <source src="music.mp3" type="audio/mpeg">
 
     </audio>
+/* ======================================
+   MUSIC PLAYER
+====================================== */
 
+const playPause = document.getElementById("playPause");
+
+const musicBarFill = document.getElementById("musicBarFill");
+
+const currentTime = document.getElementById("currentTime");
+
+const duration = document.getElementById("duration");
+
+const musicName = document.getElementById("musicName");
+
+const musicArtist = document.getElementById("musicArtist");
+
+// Puedes cambiar estos datos cuando quieras
+
+musicName.textContent = "music.mp3";
+
+musicArtist.textContent = "Xymnoz";
+
+// ---------- BOTON PLAY / PAUSE ----------
+
+playPause.onclick = () => {
+
+    if(music.paused){
+
+        music.play();
+
+        playPause.innerHTML =
+        '<i class="fa-solid fa-pause"></i>';
+
+    }else{
+
+        music.pause();
+
+        playPause.innerHTML =
+        '<i class="fa-solid fa-play"></i>';
+
+    }
+
+};
+
+// ---------- DURACION ----------
+
+function formatTime(seconds){
+
+    if(isNaN(seconds)) return "0:00";
+
+    const min = Math.floor(seconds/60);
+
+    const sec = Math.floor(seconds%60);
+
+    return min + ":" + String(sec).padStart(2,"0");
+
+}
+
+music.addEventListener("loadedmetadata",()=>{
+
+    duration.textContent =
+    formatTime(music.duration);
+
+});
+
+// ---------- BARRA ----------
+
+music.addEventListener("timeupdate",()=>{
+
+    currentTime.textContent =
+    formatTime(music.currentTime);
+
+    const percent =
+    (music.currentTime/music.duration)*100;
+
+    musicBarFill.style.width =
+    percent + "%";
+
+});
+
+// ---------- CAMBIO DE ICONO ----------
+
+music.addEventListener("play",()=>{
+
+    playPause.innerHTML =
+    '<i class="fa-solid fa-pause"></i>';
+
+});
+
+music.addEventListener("pause",()=>{
+
+    playPause.innerHTML =
+    '<i class="fa-solid fa-play"></i>';
+
+});
+
+// ---------- AL TERMINAR ----------
+
+music.addEventListener("ended",()=>{
+
+    playPause.innerHTML =
+    '<i class="fa-solid fa-play"></i>';
+
+});
     <script src="script.js"></script>
 
 </body>

@@ -371,7 +371,96 @@ for(let i=0;i<COLUMN_COUNT;i++){
 
     column.style.animationDelay =
         (-Math.random()*30) + "s";
+/* ======================================
+   BINARY SKULL ENGINE
+====================================== */
 
+const rightEye = document.getElementById("rightEye");
+
+const skull = document.getElementById("binarySkull");
+
+/* Destello del ojo */
+
+function eyeFlash(){
+
+    rightEye.setAttribute("fill","#53ff7c");
+
+    rightEye.style.filter = `
+        drop-shadow(0 0 8px #53ff7c)
+        drop-shadow(0 0 22px #53ff7c)
+        drop-shadow(0 0 45px #53ff7c)
+    `;
+
+    setTimeout(()=>{
+
+        rightEye.setAttribute("fill","#09090c");
+
+        rightEye.style.filter = "none";
+
+    },180);
+
+    const next = Math.random()*9000+5000;
+
+    setTimeout(eyeFlash,next);
+
+}
+
+setTimeout(eyeFlash,3500);
+
+
+/* ======================================
+   Skull Glitch
+====================================== */
+
+function skullGlitch(){
+
+    skull.animate([
+
+        {
+
+            transform:"translateX(0px)",
+
+            filter:
+            "drop-shadow(0 0 12px rgba(83,255,124,.25))"
+
+        },
+
+        {
+
+            transform:"translateX(-4px)",
+
+            filter:
+            "drop-shadow(-6px 0 red) drop-shadow(6px 0 cyan)"
+
+        },
+
+        {
+
+            transform:"translateX(4px)"
+
+        },
+
+        {
+
+            transform:"translateX(0px)"
+
+        }
+
+    ],{
+
+        duration:140,
+
+        easing:"steps(2)",
+
+    });
+
+    const next = Math.random()*7000+6000;
+
+    setTimeout(skullGlitch,next);
+
+}
+
+setTimeout(skullGlitch,5000);
     column.innerHTML = randomBinary(140);
 
     binaryBackground.appendChild(column);

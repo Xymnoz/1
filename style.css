@@ -205,11 +205,53 @@ body{
 
 /* TEXTO */
 
-.card h1{
+/* ===========================================
+   MAIN NICKNAME (CARD)
+=========================================== */
+
+.audioName{
 
     margin-top:22px;
 
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:1px;
+
     font-size:42px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    user-select:none;
+
+}
+
+.audioName span{
+
+    position:relative;
+
+    display:inline-block;
+
+    color:white;
+
+    transition:
+        transform .15s linear,
+        color .15s linear,
+        text-shadow .15s linear,
+        filter .15s linear;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,.10);
+
+    will-change:
+        transform,
+        color,
+        filter;
 
 }
 
@@ -575,6 +617,23 @@ transform:translate(0);
 text-shadow:none;
 
 }
+
+}
+/* ===========================================
+   AUDIO REACTIVE COLORS
+=========================================== */
+
+.audioName span.active{
+
+    color:#ffffff;
+
+    text-shadow:
+        0 0 10px #8f2fff,
+        0 0 18px #3aa9ff,
+        0 0 28px #ff2f92,
+        0 0 45px rgba(143,47,255,.45);
+
+    filter:saturate(170%);
 
 }
 /* ===========================================

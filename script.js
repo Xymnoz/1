@@ -13,8 +13,12 @@ const music = document.getElementById("bgMusic");
 =========================== */
 
 const cardTitle = document.getElementById("mainNickname");
-const letters = cardTitle.querySelectorAll("span");
 
+const g1 = document.getElementById("g1");
+const g2 = document.getElementById("g2");
+const g3 = document.getElementById("g3");
+
+const svgName = document.getElementById("svgName");
 let audioContext;
 let analyser;
 let source;
@@ -430,43 +434,67 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    for(let i = 0; i < letters.length; i++){
+    let bass = 0;
+    let mids = 0;
+    let highs = 0;
 
-        const index = Math.floor(
-            (i / letters.length) * frequencyData.length
-        );
+    // Graves
+    for(let i=0;i<18;i++){
 
-        const value = frequencyData[index];
+        bass += frequencyData[i];
 
-        const scale = 1 + value / 180;
-
-        const hue = (Date.now()/18 + i*45) % 360;
-
-        letters[i].style.transform =
-            `scaleY(${scale})`;
-
-        const level = Math.max(8, value);
-
-letters[i].style.background =
-`
-linear-gradient(
-180deg,
-hsl(${hue},100%,75%) 0%,
-hsl(${(hue+45)%360},100%,60%) ${100-level}%,
-#ffffff 100%
-)
-`;
-
-letters[i].style.backgroundSize = "100% 220%";
-
-letters[i].style.backgroundPosition =
-`0 ${100-level}%`;
-
-letters[i].style.filter =
-`
-drop-shadow(0 0 ${value/12}px hsl(${hue},100%,60%))
-drop-shadow(0 0 ${value/5}px hsl(${hue},100%,50%))
-`;
     }
+
+    bass /= 18;
+
+    // Medios
+    for(let i=18;i<60;i++){
+
+        mids += frequencyData[i];
+
+    }
+
+    mids /= 42;
+
+    // Agudos
+    for(let i=60;i<frequencyData.length;i++){
+
+        highs += frequencyData[i];
+
+    }
+
+    highs /= (frequencyData.length-60);
+
+    const hue1 = (Date.now()/18)%360;
+    const hue2 = (Date.now()/12 + 90)%360;
+    const hue3 = (Date.now()/9 + 180)%360;
+
+    g1.setAttribute(
+        "stop-color",
+        `hsl(${hue1},100%,${45+bass/6}%)`
+    );
+
+    g2.setAttribute(
+        "stop-color",
+        `hsl(${hue2},100%,${45+mids/6}%)`
+    );
+
+    g3.setAttribute(
+        "stop-color",
+        `hsl(${hue3},100%,${45+highs/6}%)`
+    );
+
+    const glow =
+        (bass+mids+highs)/3;
+
+    svgName.style.filter=
+    `
+    drop-shadow(0 0 ${glow/10}px hsl(${hue2},100%,70%))
+    drop-shadow(0 0 ${glow/5}px hsl(${hue1},100%,60%))
+    drop-shadow(0 0 ${glow/2.8}px hsl(${hue3},100%,55%))
+    `;
+
+    svgName.style.transform=
+    `scale(${1+glow/1800})`;
 
 }

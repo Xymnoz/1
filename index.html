@@ -65,16 +65,50 @@
 
 </div>
 
-            <h1 id="mainNickname" class="audioName">
+            <div id="mainNickname" class="audioName">
 
-    <span>X</span>
-    <span>y</span>
-    <span>m</span>
-    <span>n</span>
-    <span>o</span>
-    <span>z</span>
+<svg id="nameSvg"
+     viewBox="0 0 700 120"
+     xmlns="http://www.w3.org/2000/svg">
 
-</h1>
+<defs>
+
+<linearGradient
+id="nameGradient"
+x1="0%"
+y1="100%"
+x2="0%"
+y2="0%">
+
+<stop id="g1" offset="0%" stop-color="#ffffff"/>
+<stop id="g2" offset="50%" stop-color="#ffffff"/>
+<stop id="g3" offset="100%" stop-color="#ffffff"/>
+
+</linearGradient>
+
+</defs>
+
+<text
+
+id="svgName"
+
+x="50%"
+
+y="50%"
+
+text-anchor="middle"
+
+dominant-baseline="middle"
+
+fill="url(#nameGradient)">
+
+Xymnoz
+
+</text>
+
+</svg>
+
+</div>
 
             <p class="bio">
                 Building the impossible.

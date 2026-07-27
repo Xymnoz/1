@@ -744,9 +744,11 @@ text-shadow:none;
 
 width:100%;
 
-height:70px;
+height:100px;
 
 overflow:visible;
+
+display:block;
 
 }
 
@@ -754,14 +756,17 @@ overflow:visible;
 
 font-family:'Outfit',sans-serif;
 
-font-size:72px;
+font-size:98px;
 
 font-weight:800;
 
-letter-spacing:2px;
+letter-spacing:1px;
+
+dominant-baseline:middle;
+
+text-anchor:middle;
 
 filter:
-
-drop-shadow(0 0 8px rgba(255,255,255,.15));
+drop-shadow(0 0 12px rgba(255,255,255,.20));
 
 }

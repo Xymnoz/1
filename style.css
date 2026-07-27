@@ -237,21 +237,32 @@ body{
 
     display:inline-block;
 
-    color:white;
+    font-weight:800;
+
+    background:linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 100%
+    );
+
+    background-size:100% 200%;
+
+    background-position:bottom;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
 
     transition:
-        transform .15s linear,
-        color .15s linear,
-        text-shadow .15s linear,
-        filter .15s linear;
+        transform .08s linear,
+        background-position .08s linear,
+        filter .08s linear;
 
-    text-shadow:
-        0 0 8px rgba(255,255,255,.10);
-
-    will-change:
-        transform,
-        color,
-        filter;
+    filter:
+        drop-shadow(0 0 6px rgba(255,255,255,.12));
 
 }
 

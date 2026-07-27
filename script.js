@@ -445,15 +445,28 @@ function animateVisualizer(){
         letters[i].style.transform =
             `scaleY(${scale})`;
 
-        letters[i].style.color =
-            `hsl(${hue},100%,70%)`;
+        const level = Math.max(8, value);
 
-        letters[i].style.textShadow =
-        `
-        0 0 ${value/10}px hsl(${hue},100%,70%),
-        0 0 ${value/6}px hsl(${hue},100%,60%),
-        0 0 ${value/3}px hsl(${hue},100%,50%)
-        `;
+letters[i].style.background =
+`
+linear-gradient(
+180deg,
+hsl(${hue},100%,75%) 0%,
+hsl(${(hue+45)%360},100%,60%) ${100-level}%,
+#ffffff 100%
+)
+`;
+
+letters[i].style.backgroundSize = "100% 220%";
+
+letters[i].style.backgroundPosition =
+`0 ${100-level}%`;
+
+letters[i].style.filter =
+`
+drop-shadow(0 0 ${value/12}px hsl(${hue},100%,60%))
+drop-shadow(0 0 ${value/5}px hsl(${hue},100%,50%))
+`;
     }
 
 }

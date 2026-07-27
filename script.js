@@ -12,7 +12,8 @@ const music = document.getElementById("bgMusic");
    AUDIO VISUALIZER
 =========================== */
 
-const cardTitle = document.getElementById("cardTitle");
+const cardTitle = document.getElementById("mainNickname");
+const letters = cardTitle.querySelectorAll("span");
 
 let audioContext;
 let analyser;
@@ -429,30 +430,30 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    let sum = 0;
+    for(let i = 0; i < letters.length; i++){
 
-    for(let i=0;i<frequencyData.length;i++){
+        const index = Math.floor(
+            (i / letters.length) * frequencyData.length
+        );
 
-        sum += frequencyData[i];
+        const value = frequencyData[index];
 
+        const scale = 1 + value / 180;
+
+        const hue = (Date.now()/18 + i*45) % 360;
+
+        letters[i].style.transform =
+            `scaleY(${scale})`;
+
+        letters[i].style.color =
+            `hsl(${hue},100%,70%)`;
+
+        letters[i].style.textShadow =
+        `
+        0 0 ${value/10}px hsl(${hue},100%,70%),
+        0 0 ${value/6}px hsl(${hue},100%,60%),
+        0 0 ${value/3}px hsl(${hue},100%,50%)
+        `;
     }
-
-    const volume = sum / frequencyData.length;
-
-    const glow = volume * 0.35;
-
-    const hue = (Date.now()/12)%360;
-
-    cardTitle.style.color = `hsl(${hue},100%,70%)`;
-
-    cardTitle.style.textShadow =
-    `
-    0 0 ${glow*0.6}px hsl(${hue},100%,70%),
-    0 0 ${glow}px hsl(${hue},100%,60%),
-    0 0 ${glow*1.7}px hsl(${hue},100%,50%)
-    `;
-
-    cardTitle.style.transform =
-    `scale(${1 + volume/900})`;
 
 }

@@ -8,20 +8,60 @@ const intro = document.getElementById("intro");
 const main = document.getElementById("main");
 const enterBtn = document.getElementById("enterBtn");
 const music = document.getElementById("bgMusic");
+/* ===========================
+   AUDIO VISUALIZER
+=========================== */
 
-enterBtn.onclick = () => {
+const cardTitle = document.getElementById("cardTitle");
+
+let audioContext;
+let analyser;
+let source;
+let frequencyData;
+
+enterBtn.onclick = async () => {
 
     intro.style.opacity = "0";
 
     setTimeout(() => {
 
         intro.style.display = "none";
-
         main.style.display = "flex";
 
-    }, 600);
+    },600);
 
-    music.play().catch(() => {});
+    try{
+
+        if(!audioContext){
+
+            audioContext = new AudioContext();
+
+            analyser = audioContext.createAnalyser();
+
+            analyser.fftSize = 256;
+
+            frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+            source = audioContext.createMediaElementSource(music);
+
+            source.connect(analyser);
+
+            analyser.connect(audioContext.destination);
+
+        }
+
+        await audioContext.resume();
+
+        await music.play();
+
+        animateVisualizer();
+
+    }
+    catch(e){
+
+        console.log(e);
+
+    }
 
 };
 
@@ -377,3 +417,42 @@ for(let i=0;i<COLUMN_COUNT;i++){
     binaryBackground.appendChild(column);
 
 };
+/* ===========================
+   NAME VISUALIZER
+=========================== */
+
+function animateVisualizer(){
+
+    requestAnimationFrame(animateVisualizer);
+
+    if(!analyser) return;
+
+    analyser.getByteFrequencyData(frequencyData);
+
+    let sum = 0;
+
+    for(let i=0;i<frequencyData.length;i++){
+
+        sum += frequencyData[i];
+
+    }
+
+    const volume = sum / frequencyData.length;
+
+    const glow = volume * 0.35;
+
+    const hue = (Date.now()/12)%360;
+
+    cardTitle.style.color = `hsl(${hue},100%,70%)`;
+
+    cardTitle.style.textShadow =
+    `
+    0 0 ${glow*0.6}px hsl(${hue},100%,70%),
+    0 0 ${glow}px hsl(${hue},100%,60%),
+    0 0 ${glow*1.7}px hsl(${hue},100%,50%)
+    `;
+
+    cardTitle.style.transform =
+    `scale(${1 + volume/900})`;
+
+}

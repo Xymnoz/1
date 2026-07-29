@@ -233,17 +233,18 @@ body{
 
 .audioName span{
 
-    position:relative;
-
     display:inline-block;
 
-    font-weight:800;
+    transition:
+        transform .05s linear,
+        color .05s linear,
+        text-shadow .05s linear;
 
-    background:linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #ffffff 100%
-    );
+    will-change:
+        transform,
+        color;
+
+}
 
     background-size:100% 200%;
 

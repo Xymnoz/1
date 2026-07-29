@@ -299,13 +299,11 @@ body{
 
 #socialCard:hover{
 
-    transform:translateY(-4px) scale(1.02);
-
-    border-color:rgba(255,255,255,.18);
+    transform:translateY(-3px);
 
     box-shadow:
-        0 0 18px rgba(255,255,255,.08),
-        0 0 28px rgba(143,47,255,.18);
+
+    0 0 20px rgba(143,47,255,.18);
 
 }
 
@@ -314,38 +312,22 @@ body{
 .socialIcon{
 
     width:54px;
+
     height:54px;
 
+    border-radius:14px;
+
+    background:#23232d;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    background:#1c1c25;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    font-size:24px;
-
-    color:#fff;
-
-    image-rendering:pixelated;
-
-    box-shadow:
-        0 0 8px rgba(255,255,255,.18),
-        inset 0 0 8px rgba(255,255,255,.04);
-
-    transition:.25s;
+    font-size:23px;
 
 }
-
-.socialIcon i{
-
-    color:#ffffff;
-
-    filter:
-        drop-shadow(0 0 2px #ffffff)
-        drop-shadow(0 0 5px rgba(255,255,255,.75))
-        drop-shadow(0 0 10px rgba(255,255,255,.30));
 
 /* INFO */
 
@@ -363,37 +345,15 @@ body{
 
     font-size:18px;
 
-    font-weight:700;
-
-    color:#ffffff;
-
-    letter-spacing:.5px;
-
-    image-rendering:pixelated;
-
-    text-shadow:
-        0 0 2px #ffffff,
-        0 0 6px rgba(255,255,255,.90),
-        0 0 14px rgba(255,255,255,.30);
+    font-weight:600;
 
 }
 
-
 #socialSubtitle{
 
+    color:#8d8d8d;
+
     margin-top:3px;
-
-    font-size:14px;
-
-    color:#efefef;
-
-    opacity:.82;
-
-    letter-spacing:.35px;
-
-    text-shadow:
-        0 0 2px rgba(255,255,255,.55),
-        0 0 6px rgba(255,255,255,.18);
 
 }
 

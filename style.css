@@ -746,7 +746,7 @@ text-shadow:none;
 
     align-items:flex-end;
 
-    gap:5px;
+    gap:2px;
 
     height:78px;
 
@@ -754,33 +754,28 @@ text-shadow:none;
 
 .bar{
 
-    width:8px;
+    width:10px;
 
     height:18px;
 
-    border-radius:999px;
+    border-radius:0;
 
     background:linear-gradient(
         to top,
-        #8f2fff,
-        #ff2f92,
-        #ffd84d,
-        #55ff88,
-        #4aa8ff
+        #6d2cff 0%,
+        #ff2f92 35%,
+        #ffd84d 65%,
+        #5bff72 100%
     );
 
     box-shadow:
-
-        0 0 10px rgba(143,47,255,.35),
-
-        0 0 20px rgba(255,47,146,.25);
+        0 0 6px rgba(255,255,255,.08),
+        0 0 12px currentColor;
 
     transform-origin:bottom;
 
     transition:
-
-        height .05s linear,
-
-        box-shadow .05s linear;
+        height .04s linear,
+        background .04s linear;
 
 }

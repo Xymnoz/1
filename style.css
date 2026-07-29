@@ -312,7 +312,6 @@ body{
 .socialIcon{
 
     width:54px;
-
     height:54px;
 
     border-radius:14px;
@@ -320,15 +319,28 @@ body{
     background:#23232d;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:23px;
 
-}
+    transition:.35s;
 
+}
+.socialIcon i{
+
+    color:#ffffff !important;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.35),
+        0 0 10px rgba(255,255,255,.20),
+        0 0 22px rgba(255,255,255,.08);
+
+    animation:
+        socialGlow 3.8s ease-in-out infinite,
+        socialSpark 7s infinite;
+
+}
 /* INFO */
 
 .socialInfo{

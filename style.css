@@ -344,8 +344,20 @@ body{
 #socialTitle{
 
     font-size:18px;
-
     font-weight:600;
+
+    color:#ffffff;
+
+    letter-spacing:.3px;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.35),
+        0 0 10px rgba(255,255,255,.20),
+        0 0 22px rgba(255,255,255,.08);
+
+    animation:
+        socialGlow 3.8s ease-in-out infinite,
+        socialSpark 7s infinite;
 
 }
 
@@ -777,5 +789,64 @@ text-shadow:none;
     transition:
         height .04s linear,
         background .04s linear;
+
+}
+/* ===========================================
+   SOCIAL TITLE PREMIUM
+=========================================== */
+
+@keyframes socialGlow{
+
+    0%,100%{
+
+        text-shadow:
+            0 0 5px rgba(255,255,255,.30),
+            0 0 10px rgba(255,255,255,.15),
+            0 0 18px rgba(255,255,255,.08);
+
+    }
+
+    50%{
+
+        text-shadow:
+            0 0 8px rgba(255,255,255,.70),
+            0 0 18px rgba(255,255,255,.45),
+            0 0 35px rgba(255,255,255,.18);
+
+    }
+
+}
+
+@keyframes socialSpark{
+
+    0%,89%,100%{
+
+        filter:brightness(1);
+
+    }
+
+    90%{
+
+        filter:brightness(1.35);
+
+    }
+
+    91%{
+
+        filter:brightness(.95);
+
+    }
+
+    92%{
+
+        filter:brightness(1.45);
+
+    }
+
+    93%{
+
+        filter:brightness(1);
+
+    }
 
 }

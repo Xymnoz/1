@@ -13,12 +13,8 @@ const music = document.getElementById("bgMusic");
 =========================== */
 
 const cardTitle = document.getElementById("mainNickname");
+const letters = cardTitle.querySelectorAll("span");
 
-const g1 = document.getElementById("g1");
-const g2 = document.getElementById("g2");
-const g3 = document.getElementById("g3");
-
-const svgName = document.getElementById("svgName");
 let audioContext;
 let analyser;
 let source;
@@ -423,10 +419,8 @@ for(let i=0;i<COLUMN_COUNT;i++){
 
 };
 /* ===========================
-   REAL LETTER VISUALIZER
+   NAME VISUALIZER
 =========================== */
-
-const letters = document.querySelectorAll(".audioName span");
 
 function animateVisualizer(){
 
@@ -436,40 +430,43 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    const letters = document.querySelectorAll("#mainNickname span");
+    for(let i = 0; i < letters.length; i++){
 
-    if(!letters.length) return;
+        const index = Math.floor(
+            (i / letters.length) * frequencyData.length
+        );
 
-    const bands = [2,5,8,12,18,28];
+        const value = frequencyData[index];
 
-    letters.forEach((letter,index)=>{
+        const scale = 1 + value / 180;
 
-        const value = frequencyData[bands[index]] || 0;
+        const hue = (Date.now()/18 + i*45) % 360;
 
-        const scale =
-            1 + value / 230;
+        letters[i].style.transform =
+            `scaleY(${scale})`;
 
-        const hue =
-            (Date.now()/12 + index*45) % 360;
+        const level = Math.max(8, value);
 
-        const glow =
-            value / 5;
+letters[i].style.background =
+`
+linear-gradient(
+180deg,
+hsl(${hue},100%,75%) 0%,
+hsl(${(hue+45)%360},100%,60%) ${100-level}%,
+#ffffff 100%
+)
+`;
 
-        const lift =
-            -(value/18);
+letters[i].style.backgroundSize = "100% 220%";
 
-        letter.style.transform =
-        `translateY(${lift}px) scale(${scale})`;
+letters[i].style.backgroundPosition =
+`0 ${100-level}%`;
 
-        letter.style.color =
-        `hsl(${hue},100%,70%)`;
-
-        letter.style.textShadow =
-        `
-        0 0 ${glow}px hsl(${hue},100%,70%),
-        0 0 ${glow*2}px hsl(${hue},100%,60%),
-        0 0 ${glow*3}px hsl(${hue},100%,50%)
-        `;
-    });
+letters[i].style.filter =
+`
+drop-shadow(0 0 ${value/12}px hsl(${hue},100%,60%))
+drop-shadow(0 0 ${value/5}px hsl(${hue},100%,50%))
+`;
+    }
 
 }

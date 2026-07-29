@@ -88,7 +88,7 @@ subtitle:"@Xymnoz",
 
 icon:"fa-solid fa-cube",
 
-url:"https://www.roblox.com/users/XXXXXXXX/profile",
+url:"https://www.roblox.com/es/users/138785567/profile",
 
 color:"#ffffff"
 
@@ -102,7 +102,7 @@ subtitle:"@Xymnoz",
 
 icon:"fa-brands fa-discord",
 
-url:"https://discord.com/users/TU_ID",
+url:"https://discord.com/users/1232462239168987178",
 
 color:"#5865F2"
 
@@ -112,7 +112,7 @@ color:"#5865F2"
 
 title:"Discord Server",
 
-subtitle:"Join our community",
+subtitle:"(Aun trabajando en esto)",
 
 icon:"fa-solid fa-users",
 
@@ -126,7 +126,7 @@ color:"#7289DA"
 
 title:"Steam",
 
-subtitle:"View my profile",
+subtitle:"¿Te pinta jugar algo?",
 
 icon:"fa-brands fa-steam",
 
@@ -140,11 +140,11 @@ color:"#66c0f4"
 
 title:"Spotify",
 
-subtitle:"Listen with me",
+subtitle:"Recomendame música de paso",
 
 icon:"fa-brands fa-spotify",
 
-url:"https://open.spotify.com/user/TUUSUARIO",
+url:"https://open.spotify.com/user/31sshiewxr3scz45lqhsdfrfg744?si=7kqtAedlT8STyoW5ZIqkIQ&utm_source=copy-link&nd=1&dlsi=9798527aded2481b",
 
 color:"#1DB954"
 

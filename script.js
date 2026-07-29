@@ -430,43 +430,62 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    for(let i = 0; i < letters.length; i++){
+    // Barras del ecualizador
+    const bars = [
+        document.getElementById("bar0"),
+        document.getElementById("bar1"),
+        document.getElementById("bar2"),
+        document.getElementById("bar3"),
+        document.getElementById("bar4"),
+        document.getElementById("bar5")
+    ];
 
-        const index = Math.floor(
-            (i / letters.length) * frequencyData.length
-        );
+    // Distintas bandas de frecuencia
+    const bands = [2, 6, 12, 24, 48, 80];
 
-        const value = frequencyData[index];
+    let total = 0;
 
-        const scale = 1 + value / 180;
+    for(let i=0;i<bars.length;i++){
 
-        const hue = (Date.now()/18 + i*45) % 360;
+        const value = frequencyData[bands[i]] || 0;
 
-        letters[i].style.transform =
-            `scaleY(${scale})`;
+        total += value;
 
-        const level = Math.max(8, value);
+        const height = 16 + value * 0.35;
 
-letters[i].style.background =
-`
-linear-gradient(
-180deg,
-hsl(${hue},100%,75%) 0%,
-hsl(${(hue+45)%360},100%,60%) ${100-level}%,
-#ffffff 100%
-)
-`;
+        bars[i].style.height = height + "px";
 
-letters[i].style.backgroundSize = "100% 220%";
+        const hue = (value * 1.6 + Date.now() / 18) % 360;
 
-letters[i].style.backgroundPosition =
-`0 ${100-level}%`;
+        bars[i].style.background =
+            `linear-gradient(to top,
+            hsl(${hue},100%,55%),
+            hsl(${(hue+40)%360},100%,60%),
+            hsl(${(hue+80)%360},100%,65%)
+            )`;
 
-letters[i].style.filter =
-`
-drop-shadow(0 0 ${value/12}px hsl(${hue},100%,60%))
-drop-shadow(0 0 ${value/5}px hsl(${hue},100%,50%))
-`;
+        bars[i].style.boxShadow =
+            `0 0 ${value/8}px hsl(${hue},100%,60%)`;
     }
+
+    // Color del nombre
+    const volume = total / bars.length;
+
+    const hue = (Date.now()/10) % 360;
+
+    document.querySelectorAll(".audioName span").forEach((letter,index)=>{
+
+        const offset = index * 18;
+
+        letter.style.color =
+            `hsl(${(hue+offset)%360},100%,72%)`;
+
+        letter.style.textShadow =
+            `
+            0 0 ${6+volume/18}px hsl(${(hue+offset)%360},100%,65%),
+            0 0 ${14+volume/10}px hsl(${(hue+offset+30)%360},100%,60%)
+            `;
+
+    });
 
 }

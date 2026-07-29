@@ -209,25 +209,33 @@ body{
    MAIN NICKNAME (CARD)
 =========================================== */
 
-.audioName{
-
-    margin-top:22px;
+.nameContainer{
 
     display:flex;
-
+    align-items:flex-end;
     justify-content:center;
+    gap:18px;
+    margin-top:22px;
 
+}
+
+.audioName{
+
+    display:flex;
     align-items:center;
+    justify-content:center;
 
     gap:1px;
 
-    font-size:42px;
+    font-size:56px;
 
     font-weight:800;
 
-    letter-spacing:-1px;
+    letter-spacing:-2px;
 
     user-select:none;
+
+    line-height:1;
 
 }
 

@@ -423,8 +423,10 @@ for(let i=0;i<COLUMN_COUNT;i++){
 
 };
 /* ===========================
-   NAME VISUALIZER
+   REAL LETTER VISUALIZER
 =========================== */
+
+const letters = document.querySelectorAll(".audioName span");
 
 function animateVisualizer(){
 
@@ -434,65 +436,51 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    let bass = 0;
-    let mids = 0;
-    let highs = 0;
+    const bandSize = Math.floor(frequencyData.length / letters.length);
 
-    // Graves
-    for(let i=0;i<18;i++){
+    letters.forEach((letter,index)=>{
 
-        bass += frequencyData[i];
+        let total = 0;
 
-    }
+        for(let i=0;i<bandSize;i++){
 
-    bass /= 18;
+            total += frequencyData[index*bandSize+i];
 
-    // Medios
-    for(let i=18;i<60;i++){
+        }
 
-        mids += frequencyData[i];
+        const level = total / bandSize;
 
-    }
+        // Altura individual
+        const move = level / 12;
 
-    mids /= 42;
+        // Escala individual
+        const scale = 1 + level / 650;
 
-    // Agudos
-    for(let i=60;i<frequencyData.length;i++){
+        // Color RGB desplazado
+        const hue =
+        (
+            Date.now()/18 +
+            index*45 +
+            level
+        ) % 360;
 
-        highs += frequencyData[i];
+        // Brillo
+        const glow = 8 + level/6;
 
-    }
+        letter.style.transform =
+        `translateY(${-move}px) scale(${scale})`;
 
-    highs /= (frequencyData.length-60);
+        letter.style.color =
+        `hsl(${hue},100%,70%)`;
 
-    const hue1 = (Date.now()/18)%360;
-    const hue2 = (Date.now()/12 + 90)%360;
-    const hue3 = (Date.now()/9 + 180)%360;
+        letter.style.textShadow = `
+        0 0 ${glow}px hsla(${hue},100%,70%,0.95),
+        0 0 ${glow*2}px hsla(${hue},100%,60%,0.55)
+        `;
 
-    g1.setAttribute(
-        "stop-color",
-        `hsl(${hue1},100%,${45+bass/6}%)`
-    );
+    });
 
-    g2.setAttribute(
-        "stop-color",
-        `hsl(${hue2},100%,${45+mids/6}%)`
-    );
-
-    g3.setAttribute(
-        "stop-color",
-        `hsl(${hue3},100%,${45+highs/6}%)`
-    );
-
-    const glow =
-        (bass+mids+highs)/3;
-
-    svgName.style.filter=
-    `
-    drop-shadow(0 0 ${glow/10}px hsl(${hue2},100%,70%))
-    drop-shadow(0 0 ${glow/5}px hsl(${hue1},100%,60%))
-    drop-shadow(0 0 ${glow/2.8}px hsl(${hue3},100%,55%))
-    `;
+}
 
     svgName.style.transform=
     `scale(${1+glow/1800})`;

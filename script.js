@@ -130,7 +130,7 @@ subtitle:"¿Te pinta jugar algo?",
 
 icon:"fa-brands fa-steam",
 
-url:"https://steamcommunity.com/id/TUPERFIL",
+url:"https://steamcommunity.com/profiles/76561198760708210/",
 
 color:"#66c0f4"
 

@@ -140,7 +140,7 @@ color:"#66c0f4"
 
 title:"Spotify",
 
-subtitle:"Recomendame música de paso",
+subtitle:"Recomendame música, crack",
 
 icon:"fa-brands fa-spotify",
 

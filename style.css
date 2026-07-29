@@ -241,36 +241,23 @@ body{
 
 .audioName span{
 
-    position:relative;
-
     display:inline-block;
+
+    color:white;
 
     font-weight:800;
 
-    background:linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #ffffff 100%
-    );
-
-    background-size:100% 200%;
-
-    background-position:bottom;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    -webkit-text-fill-color:transparent;
-
     transition:
-        transform .08s linear,
-        background-position .08s linear,
-        filter .08s linear;
 
-    filter:
-        drop-shadow(0 0 6px rgba(255,255,255,.12));
+        color .08s linear,
+
+        text-shadow .08s linear,
+
+        transform .08s linear;
+
+    text-shadow:
+
+        0 0 8px rgba(255,255,255,.12);
 
 }
 
@@ -746,5 +733,54 @@ text-shadow:none;
         transform:translateY(-220vh);
 
     }
+
+}
+
+/* ==========================================
+   AUDIO EQUALIZER
+========================================== */
+
+.equalizer{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:5px;
+
+    height:78px;
+
+}
+
+.bar{
+
+    width:8px;
+
+    height:18px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        to top,
+        #8f2fff,
+        #ff2f92,
+        #ffd84d,
+        #55ff88,
+        #4aa8ff
+    );
+
+    box-shadow:
+
+        0 0 10px rgba(143,47,255,.35),
+
+        0 0 20px rgba(255,47,146,.25);
+
+    transform-origin:bottom;
+
+    transition:
+
+        height .05s linear,
+
+        box-shadow .05s linear;
 
 }

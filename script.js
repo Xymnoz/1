@@ -170,8 +170,6 @@ socialCard.href = s.url;
 
 socialIcon.className = s.icon;
 
-socialIcon.style.color = s.color;
-
 progress = 100;
 
 }

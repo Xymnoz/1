@@ -436,30 +436,40 @@ function animateVisualizer(){
 
     analyser.getByteFrequencyData(frequencyData);
 
-    const letters = document.querySelectorAll(".audioName span");
+    const letters = document.querySelectorAll("#mainNickname span");
 
-    const step = Math.floor(frequencyData.length / letters.length);
+    if(!letters.length) return;
+
+    const bands = [2,5,8,12,18,28];
 
     letters.forEach((letter,index)=>{
 
-        const value = frequencyData[index * step];
+        const value = frequencyData[bands[index]] || 0;
 
-        const scale = 1 + value / 450;
+        const scale =
+            1 + value / 230;
 
-        const hue = (Date.now()/20 + index*45 + value) % 360;
+        const hue =
+            (Date.now()/12 + index*45) % 360;
+
+        const glow =
+            value / 5;
+
+        const lift =
+            -(value/18);
+
+        letter.style.transform =
+        `translateY(${lift}px) scale(${scale})`;
 
         letter.style.color =
         `hsl(${hue},100%,70%)`;
 
-        letter.style.transform =
-        `translateY(${-value/18}px) scale(${scale})`;
-
-        letter.style.textShadow = `
-        0 0 ${value/8}px hsl(${hue},100%,70%),
-        0 0 ${value/4}px hsl(${hue},100%,60%),
-        0 0 ${value/2}px hsl(${hue},100%,50%)
+        letter.style.textShadow =
+        `
+        0 0 ${glow}px hsl(${hue},100%,70%),
+        0 0 ${glow*2}px hsl(${hue},100%,60%),
+        0 0 ${glow*3}px hsl(${hue},100%,50%)
         `;
-
     });
 
 }

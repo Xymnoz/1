@@ -488,89 +488,122 @@ function animateVisualizer(){
 
 }
 /* ======================================
-   BIO TYPING (Main Card)
+   TYPEWRITER ENGINE
 ====================================== */
 
-const bioTyping = document.getElementById("bioTyping");
+class Typewriter{
 
-if (bioTyping) {
+    constructor(element, texts, options={}){
 
-    const bioLines = [
+        this.element = element;
+        this.texts = texts;
 
-        "Editor Audiovisual",
+        this.writeSpeed = options.writeSpeed ?? 80;
+        this.eraseSpeed = options.eraseSpeed ?? 55;
+        this.pauseTime = options.pauseTime ?? 2500;
+        this.nextDelay = options.nextDelay ?? 600;
 
-        "Desarrollador Web",
+        this.textIndex = 0;
+        this.charIndex = 0;
+        this.erasing = false;
 
-        "Artista Digital",
+        this.loop();
 
-        "Autor Novelista",
+    }
 
-        "Trilingüe: Esp / Ing / Por",
+    loop(){
 
-        "Orgullosamente Argentino"
+        const text = this.texts[this.textIndex];
 
-    ];
+        if(!this.erasing){
 
-    let bioIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+            this.charIndex++;
 
-    function animateBio() {
+            this.element.textContent =
+                text.slice(0,this.charIndex);
 
-        const current = bioLines[bioIndex];
+            if(this.charIndex >= text.length){
 
-        if (!deleting) {
+                this.erasing = true;
 
-            bioTyping.textContent =
-                current.substring(0, charIndex);
-
-            charIndex++;
-
-            if (charIndex > current.length) {
-
-                deleting = true;
-
-                setTimeout(animateBio, 2200);
+                setTimeout(()=>this.loop(),this.pauseTime);
 
                 return;
 
             }
 
-            setTimeout(animateBio, 75);
+            setTimeout(()=>this.loop(),this.writeSpeed);
 
-        } else {
+        }
 
-            bioTyping.textContent =
-                current.substring(0, charIndex);
+        else{
 
-            charIndex--;
+            this.charIndex--;
 
-            if (charIndex < 0) {
+            this.element.textContent =
+                text.slice(0,this.charIndex);
 
-                deleting = false;
+            if(this.charIndex <= 0){
 
-                bioIndex++;
+                this.erasing = false;
 
-                if (bioIndex >= bioLines.length) {
+                this.textIndex =
+                    (this.textIndex+1)%this.texts.length;
 
-                    bioIndex = 0;
-
-                }
-
-                charIndex = 0;
-
-                setTimeout(animateBio, 500);
+                setTimeout(()=>this.loop(),this.nextDelay);
 
                 return;
 
             }
 
-            setTimeout(animateBio, 110);
+            setTimeout(()=>this.loop(),this.eraseSpeed);
 
         }
 
     }
 
-    animateBio();
+}
+
+/* ======================================
+   BIO INITIALIZER
+====================================== */
+
+const bioElement = document.getElementById("bioTyping");
+
+if(bioElement){
+
+    new Typewriter(
+
+        bioElement,
+
+        [
+
+            "Editor Audiovisual",
+
+            "Desarrollador Web",
+
+            "Artista Digital",
+
+            "Autor Novelista",
+
+            "Trilingüe: Esp / Ing / Por",
+
+            "Orgullosamente Argentino"
+
+        ],
+
+        {
+
+            writeSpeed:85,
+
+            eraseSpeed:55,
+
+            pauseTime:2400,
+
+            nextDelay:500
+
+        }
+
+    );
 
 }

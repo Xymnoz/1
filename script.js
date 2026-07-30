@@ -487,3 +487,90 @@ function animateVisualizer(){
     });
 
 }
+/* ======================================
+   BIO TYPING (Main Card)
+====================================== */
+
+const bioTyping = document.getElementById("bioTyping");
+
+if (bioTyping) {
+
+    const bioLines = [
+
+        "Editor Audiovisual",
+
+        "Desarrollador Web",
+
+        "Artista Digital",
+
+        "Autor Novelista",
+
+        "Trilingüe: Esp / Ing / Por",
+
+        "Orgullosamente Argentino"
+
+    ];
+
+    let bioIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function animateBio() {
+
+        const current = bioLines[bioIndex];
+
+        if (!deleting) {
+
+            bioTyping.textContent =
+                current.substring(0, charIndex);
+
+            charIndex++;
+
+            if (charIndex > current.length) {
+
+                deleting = true;
+
+                setTimeout(animateBio, 2200);
+
+                return;
+
+            }
+
+            setTimeout(animateBio, 75);
+
+        } else {
+
+            bioTyping.textContent =
+                current.substring(0, charIndex);
+
+            charIndex--;
+
+            if (charIndex < 0) {
+
+                deleting = false;
+
+                bioIndex++;
+
+                if (bioIndex >= bioLines.length) {
+
+                    bioIndex = 0;
+
+                }
+
+                charIndex = 0;
+
+                setTimeout(animateBio, 500);
+
+                return;
+
+            }
+
+            setTimeout(animateBio, 110);
+
+        }
+
+    }
+
+    animateBio();
+
+}

@@ -225,17 +225,19 @@ body{
     align-items:center;
     justify-content:center;
 
-    gap:1px;
+    gap:3px;
 
-    font-size:56px;
+    font-family:'Press Start 2P', monospace;
 
-    font-weight:800;
+    font-size:34px;
 
-    letter-spacing:-2px;
+    font-weight:400;
+
+    letter-spacing:1px;
 
     user-select:none;
 
-    line-height:1;
+    line-height:1.2;
 
 }
 

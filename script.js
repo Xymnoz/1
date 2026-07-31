@@ -114,7 +114,7 @@ title:"Discord Server",
 
 subtitle:"(Aun trabajando en esto)",
 
-icon:"fa-solid fa-users",
+image:"server.gif",
 
 url:"https://discord.gg/TUINVITACION",
 
@@ -160,17 +160,38 @@ let progress = 100;
 
 function updateCard(){
 
-const s = socials[current];
+    const s = socials[current];
 
-socialTitle.textContent = s.title;
+    const socialImage =
+    document.getElementById("socialImage");
 
-socialSubtitle.textContent = s.subtitle;
+    socialTitle.textContent = s.title;
 
-socialCard.href = s.url;
+    socialSubtitle.textContent = s.subtitle;
 
-socialIcon.className = s.icon;
+    socialCard.href = s.url;
 
-progress = 100;
+    if(s.image){
+
+        socialImage.src = s.image;
+
+        socialImage.style.display = "block";
+
+        socialIcon.style.display = "none";
+
+    }
+
+    else{
+
+        socialImage.style.display = "none";
+
+        socialIcon.style.display = "block";
+
+        socialIcon.className = s.icon;
+
+    }
+
+    progress = 100;
 
 }
 

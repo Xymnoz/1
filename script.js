@@ -110,9 +110,9 @@ color:"#5865F2"
 
 {
 
-title:"Discord Server",
+title:"‧₊˚✧ ೃ༄ Xymnozis",
 
-subtitle:"(Aun trabajando en esto)",
+subtitle:"Mí Servidor (Cerrado Temporal)",
 
 image:"server.gif",
 

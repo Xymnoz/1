@@ -141,15 +141,70 @@
 
             </a>
 
-            <div class="progress">
+            <div id="musicPlayer">
 
-                <div id="progressBar"></div>
+    <div class="playerLeft">
+
+        <img
+            id="musicCover"
+            src="album1.gif"
+            alt="Album">
+
+    </div>
+
+    <div class="playerCenter">
+
+        <div id="musicTitle">
+            Sin título
+        </div>
+
+        <div id="musicPhrase">
+            Cargando...
+        </div>
+
+        <div class="timeContainer">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <div class="musicProgress">
+
+                <div id="musicProgressBar"></div>
 
             </div>
 
+            <span id="totalTime">
+                0:00
+            </span>
+
         </div>
 
-    </main>
+    </div>
+
+    <div class="playerControls">
+
+        <button id="prevSong">
+
+            <i class="fa-solid fa-backward-step"></i>
+
+        </button>
+
+        <button id="playPause">
+
+            <i class="fa-solid fa-pause"></i>
+
+        </button>
+
+        <button id="nextSong">
+
+            <i class="fa-solid fa-forward-step"></i>
+
+        </button>
+
+    </div>
+
+</div>
 
     <audio id="bgMusic" loop>
 
